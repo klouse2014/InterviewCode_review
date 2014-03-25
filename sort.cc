@@ -7,7 +7,7 @@ void arrPrint(int *arr, int len)
     cout<<arr[i]<<" ";
   cout<<endl;
 }
-
+//快速排序
 void quickSort(int *arr, int begin, int end)
 {
   if(begin >= end)
@@ -29,7 +29,7 @@ void quickSort(int *arr, int begin, int end)
   quickSort(arr, begin, i-1);
   quickSort(arr, i+1, end);
 }
-
+//插入排序
 void insertSort(int *arr, int len)
 {
   for(int i=1; i<len; i++)
@@ -41,7 +41,7 @@ void insertSort(int *arr, int len)
     arr[j+1] = pivot;
   }
 }
-
+//冒泡排序
 void bubbleSort(int *arr, int len)
 {
   for(int i=0; i<len-1; i++)
@@ -53,7 +53,7 @@ void bubbleSort(int *arr, int len)
     }
   }
 }
-
+//归并排序
 void merge(int *arr, int *arr_temp, int leftStart, int rightStart, int rightEnd)
 {
   int leftEnd = rightStart - 1;
@@ -74,8 +74,6 @@ void merge(int *arr, int *arr_temp, int leftStart, int rightStart, int rightEnd)
   for(int i=leftStart; i<=rightEnd; i++)
     arr[i] = arr_temp[i];
 }
-
-
 void mergeSort(int *arr, int *arr_temp, int left, int right)
 {
   if(left >= right)
@@ -85,7 +83,7 @@ void mergeSort(int *arr, int *arr_temp, int left, int right)
   mergeSort(arr, arr_temp, mid+1, right);
   merge(arr, arr_temp, left, mid+1, right);
 }
-
+//希尔排序
 void shellSort(int *arr, int len)
 {
   for(int step = len>>1; step >= 1; step/=2)
@@ -100,7 +98,7 @@ void shellSort(int *arr, int len)
     }
   }
 }
-
+//堆排序
 void sitDown(int *arr, int index, int size)
 {
   if(index < 0)
@@ -119,8 +117,6 @@ void sitDown(int *arr, int index, int size)
   }
   arr[index] = pivot;
 }
-
-
 void heapSort(int *arr, int len)
 {
   if(len<=0)

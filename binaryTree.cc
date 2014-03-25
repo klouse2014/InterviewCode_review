@@ -10,7 +10,7 @@ struct binaryTreeNode
   binaryTreeNode *rchild;
   binaryTreeNode(int value):m_value(value), lchild(0), rchild(0){}
 };
-
+//生成二叉树
 void insert(binaryTreeNode* &root)
 {
   int a;
@@ -24,7 +24,7 @@ void insert(binaryTreeNode* &root)
     insert(root->rchild);
   }
 }
-
+//前序遍历
 void preOrder(binaryTreeNode *root)
 {
   stack<binaryTreeNode *> stk;
@@ -45,7 +45,7 @@ void preOrder(binaryTreeNode *root)
   }
   cout<<endl;
 }
-
+//中序遍历
 void inOrder(binaryTreeNode *root)
 {
   if(root == NULL)
@@ -64,7 +64,7 @@ void inOrder(binaryTreeNode *root)
   }
   cout<<endl;
 }
-
+//后序遍历
 void postOrder(binaryTreeNode *root)
 {
   stack<binaryTreeNode *> stk;
@@ -98,7 +98,7 @@ void postOrder(binaryTreeNode *root)
   }
   cout<<endl;
 }
-
+//层次遍历
 void levelOrder(binaryTreeNode *root)
 {
   if(root == NULL)
