@@ -117,16 +117,36 @@ void levelOrder(binaryTreeNode *root)
   }
   cout<<endl;
 }
+//重建二叉树
+binaryTreeNode* construct(int *preorder, int *inorder, int len)
+{
+  if(preorder == NULL || inorder == NULL || len <= 0)
+    return NULL;
+  int value = preorder[0];
+  binaryTreeNode *root = new binaryTreeNode(value);
+  int i=0;
+  while(i<len && inorder[i] != value)
+    i++;
+  if(i == len)
+    throw std::exception();
+  root->lchild = construct(preorder+1, inorder, i);
+  root->rchild = construct(preorder+i+1, inorder+i+1, len-i-1);
+  return root;
+}
 
 int main()
 {
   binaryTreeNode *root = NULL;
-  insert(root);
-
-  preOrder(root);
-  inOrder(root);
+  /* insert(root); */
+  /* preOrder(root); */
+  /* inOrder(root); */
+  /* postOrder(root); */
+  /* levelOrder(root); */
+  int pre[] = {2,3,5,4,1};
+  int in[] = {3,5,2,1,4};
+  root = construct(pre, in, 5);
   postOrder(root);
-  levelOrder(root);
+
   return 0;
 }
 
